@@ -15,5 +15,5 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: "/new-website/",
+  base: mode === "development" ? "/" : "/new-website/",
 }));
