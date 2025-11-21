@@ -13,7 +13,7 @@ export const Footer = () => {
             Your Design Partner That Never Sleeps
           </p>
           <div className="flex flex-wrap justify-center gap-4 text-sm mb-4">
-            <a href="mailto:business@popeyai.com" className="hover:text-primary-light transition-colors">
+            <a href="mailto:info@popeyai.com" className="hover:text-primary-light transition-colors">
               info@popeyai.com
             </a>
             <span>|</span>
