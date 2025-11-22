@@ -10,7 +10,6 @@ export const Header = () => {
 
         <nav className="hidden md:flex items-center gap-8">
           <a href="#services" className="text-sm font-bold text-white hover:text-primary-light transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary-light after:transition-all after:duration-300 hover:after:w-full">Services</a>
-          <a href="#agentic-ai" className="text-sm font-bold text-white hover:text-primary-light transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary-light after:transition-all after:duration-300 hover:after:w-full">Packages</a>
           <a href="#process" className="text-sm font-bold text-white hover:text-primary-light transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary-light after:transition-all after:duration-300 hover:after:w-full">Process</a>
           <a href="#testimonials" className="text-sm font-bold text-white hover:text-primary-light transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary-light after:transition-all after:duration-300 hover:after:w-full">Testimonials</a>
           <a href="#faq" className="text-sm font-bold text-white hover:text-primary-light transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary-light after:transition-all after:duration-300 hover:after:w-full">FAQ</a>
