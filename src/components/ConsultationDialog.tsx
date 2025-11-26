@@ -4,11 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { db } from "@/lib/firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { z } from "zod";
 
 const consultationSchema = z.object({
   name: z.string().trim().min(2, { message: "Name must be at least 2 characters" }).max(100, { message: "Name must be less than 100 characters" }),
-  companyName: z.string().trim().max(100, { message: "Company name must be less than 100 characters" }).optional(),
+  companyName: z.string().trim().min(2, { message: "Company name must be at least 2 characters" }).max(100, { message: "Company name must be less than 100 characters" }),
   phone: z.string().trim().min(10, { message: "Please enter a valid phone number" }).max(20, { message: "Phone number is too long" }),
   email: z.string().trim().email({ message: "Please enter a valid email address" }).max(255, { message: "Email must be less than 255 characters" }),
 });
@@ -34,18 +36,23 @@ export const ConsultationDialog = ({ open, onOpenChange }: ConsultationDialogPro
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrors({});
-    
+
     try {
       const validatedData = consultationSchema.parse(formData);
       setIsSubmitting(true);
 
-      // Here you would normally send data to your backend
-      // For now, we'll simulate a successful submission
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Save to Firebase Firestore
+      await addDoc(collection(db, 'strategy_calls'), {
+        name: validatedData.name,
+        companyName: validatedData.companyName,
+        email: validatedData.email,
+        phone: validatedData.phone,
+        createdAt: serverTimestamp(),
+      });
 
       toast({
-        title: "Consultation Booked!",
-        description: "We'll contact you shortly to schedule your free consultation.",
+        title: "Strategy Call Booked!",
+        description: "We'll contact you within 24 hours to schedule your free consultation.",
       });
 
       setFormData({ name: "", companyName: "", phone: "", email: "" });
@@ -59,6 +66,13 @@ export const ConsultationDialog = ({ open, onOpenChange }: ConsultationDialogPro
           }
         });
         setErrors(fieldErrors);
+      } else {
+        console.error('Firebase error:', error);
+        toast({
+          title: "Submission Failed",
+          description: "There was an error submitting your request. Please try again or contact us directly.",
+          variant: "destructive",
+        });
       }
     } finally {
       setIsSubmitting(false);
@@ -81,7 +95,7 @@ export const ConsultationDialog = ({ open, onOpenChange }: ConsultationDialogPro
             Fill out the form below and we'll get back to you within 24 hours to discuss your AI automation needs.
           </DialogDescription>
         </DialogHeader>
-        
+
         <form onSubmit={handleSubmit} className="space-y-4 mt-4">
           <div className="space-y-2">
             <Label htmlFor="name" className="text-foreground">
@@ -100,13 +114,13 @@ export const ConsultationDialog = ({ open, onOpenChange }: ConsultationDialogPro
 
           <div className="space-y-2">
             <Label htmlFor="companyName" className="text-foreground">
-              Company Name
+              Company Name <span className="text-destructive">*</span>
             </Label>
             <Input
               id="companyName"
               value={formData.companyName}
               onChange={handleChange("companyName")}
-              placeholder="Your Company (Optional)"
+              placeholder="Your Company"
               className={errors.companyName ? "border-destructive" : ""}
               disabled={isSubmitting}
             />

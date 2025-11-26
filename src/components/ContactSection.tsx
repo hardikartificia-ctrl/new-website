@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Globe, CheckCircle2, ArrowRight, X } from "lucide-react";
+import { ConsultationDialog } from "./ConsultationDialog";
 
 export const ContactSection = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
   const callBenefits = [
     "Your current workflow and bottlenecks",
     "Your growth goals for the next 6-12 months",
@@ -51,14 +55,15 @@ export const ContactSection = () => {
                 </div>
               ))}
             </div>
-            
+
             <p className="text-center text-lg font-semibold text-muted-foreground mb-6">
               No sales pressure. No generic pitches. Just honest conversation and smart solutions.
             </p>
-            
+
             <div className="text-center">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
+                onClick={() => setIsDialogOpen(true)}
                 className="text-xl px-12 py-8 bg-primary hover:bg-primary-dark text-primary-foreground font-bold shadow-xl hover-lift"
               >
                 Book Your Strategy Call Now
@@ -71,17 +76,17 @@ export const ContactSection = () => {
           <div className="bg-muted/50 p-8 rounded-2xl mb-12">
             <p className="text-center text-lg font-semibold mb-6">Or reach out directly:</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <a 
-                href="mailto:business@popeyai.com"
+              <a
+                href="mailto:info@popeyai.com"
                 className="flex items-center gap-3 p-4 bg-background rounded-lg hover-lift"
               >
                 <Mail className="h-6 w-6 text-primary" />
                 <div>
                   <p className="font-semibold">Email</p>
-                  <p className="text-sm text-muted-foreground">business@popeyai.com</p>
+                  <p className="text-sm text-muted-foreground">info@popeyai.com</p>
                 </div>
               </a>
-              <a 
+              <a
                 href="https://wa.me/919104488859"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -124,7 +129,7 @@ export const ContactSection = () => {
             <p className="text-base md:text-lg text-center mb-8 leading-relaxed">
               They have secret weapons—teams like <strong>Popey AI</strong>—working behind the scenes to multiply their capacity without multiplying their costs.
             </p>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
               <div className="bg-background/80 p-6 rounded-xl">
                 <p className="text-lg font-bold mb-4">Every day you wait is a day of:</p>
@@ -137,7 +142,7 @@ export const ContactSection = () => {
                   ))}
                 </div>
               </div>
-              
+
               <div className="bg-primary/10 p-6 rounded-xl border-2 border-primary">
                 <p className="text-lg font-bold mb-4">Every day you partner with us is a day of:</p>
                 <div className="space-y-2">
@@ -150,7 +155,7 @@ export const ContactSection = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="text-center">
               <p className="text-lg md:text-xl mb-4">
                 You can keep struggling to do everything in-house.
@@ -165,6 +170,11 @@ export const ContactSection = () => {
           </div>
         </div>
       </div>
+
+      <ConsultationDialog
+        open={isDialogOpen}
+        onOpenChange={setIsDialogOpen}
+      />
     </section>
   );
 };

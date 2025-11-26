@@ -192,22 +192,138 @@ export const ServicesSection = () => {
         },
         {
             icon: Target,
-            title: "LEAD GENERATION PACKAGE",
-            subtitle: "Perfect for: Businesses looking to scale their customer acquisition",
-            description: "Typical includes:",
+            title: "INDUSTRIAL LEAD FACTORY",
+            subtitle: "🚀 MANUFACTURING & INDUSTRIAL",
+            description: "",
             features: [
-                "AI-powered lead qualification system",
-                "Multi-channel campaign setup (Email, Social, Paid Ads)",
-                "Automated lead nurturing sequences",
-                "CRM integration and management",
-                "Real-time analytics dashboard",
-                "Monthly strategy optimization sessions",
+                "You're losing B2B buyers daily — this $199 system stops it instantly",
+                "Others charge $2,000+… you get it for $199. Same results, 10X faster",
+                "Your competitors will hate that you saw this first",
             ],
             pricing: {
-                basic: "$199/month",
-                standard: "$349/month",
-                premium: "$599/month",
-                details: "Includes 100-500 qualified leads per month, automated follow-up systems, and dedicated lead generation specialist.",
+                basic: "$199 for Lifetime",
+                standard: "",
+                premium: "",
+                details: "",
+            },
+        },
+        {
+            icon: Target,
+            title: "VIP PLAYER LEAD GEN",
+            subtitle: "🎰 CASINO & iGAMING",
+            description: "",
+            features: [
+                "VIP player & affiliate leads for $199? Others charge thousands",
+                "If you want instant traffic & players, this is your unfair advantage",
+                "Stop wasting money — get better results for 1/10th the price",
+            ],
+            pricing: {
+                basic: "$199 for Lifetime",
+                standard: "",
+                premium: "",
+                details: "",
+            },
+        },
+        {
+            icon: Target,
+            title: "BOOKING LEAD GENERATOR",
+            subtitle: "🏨 HOTELS, RESORTS, SALONS, SPA, HOSPITALITY",
+            description: "",
+            features: [
+                "Fill your bookings instantly — at a price no one can match",
+                "Others pay $1,500/month. You pay $199 once. Same (or better) results",
+                "Your bookings, events, weddings & guests will multiply fast",
+            ],
+            pricing: {
+                basic: "$199 for Lifetime",
+                standard: "",
+                premium: "",
+                details: "",
+            },
+        },
+        {
+            icon: Target,
+            title: "CONTRACTOR LEAD ENGINE",
+            subtitle: "🏠 HOME IMPROVEMENT",
+            description: "",
+            features: [
+                "Your next 30–90 projects come from this $199 system",
+                "Contractors abroad are shocked by these results",
+                "Stop paying $40 per lead — this gives you 100's for $199",
+            ],
+            pricing: {
+                basic: "$199 for Lifetime",
+                standard: "",
+                premium: "",
+                details: "",
+            },
+        },
+        {
+            icon: Target,
+            title: "PATIENT LEAD GENERATOR",
+            subtitle: "🏥 HEALTHCARE",
+            description: "",
+            features: [
+                "Clinics abroad are paying thousands. You pay $199 and win bigger",
+                "Your appointment calendar will fill instantly",
+                "Automated patient flow — lowest price on the planet",
+            ],
+            pricing: {
+                basic: "$199 for Lifetime",
+                standard: "",
+                premium: "",
+                details: "",
+            },
+        },
+        {
+            icon: Target,
+            title: "CLEANING LEAD PIPELINE",
+            subtitle: "💼 CLEANING & LAUNDRY SERVICES",
+            description: "",
+            features: [
+                "20–50 new cleaning clients monthly — from a $199 system",
+                "Stop paying agencies $1,000/month. Get better results for 1/10th",
+                "Your competitor already automated. Did you?",
+            ],
+            pricing: {
+                basic: "$199 for Lifetime",
+                standard: "",
+                premium: "",
+                details: "",
+            },
+        },
+        {
+            icon: Target,
+            title: "WHOLESALE LEAD FINDER",
+            subtitle: "🛍 E-COMMERCE",
+            description: "",
+            features: [
+                "E-com brands abroad pay $2,000/month for what you get at $199",
+                "Get wholesale buyers, influencers & customers automatically",
+                "Your brand is one automation away from explosive growth",
+            ],
+            pricing: {
+                basic: "$199 for Lifetime",
+                standard: "",
+                premium: "",
+                details: "",
+            },
+        },
+        {
+            icon: Target,
+            title: "MEMBERSHIP LEAD FLOW",
+            subtitle: "🧘 GYMS, FITNESS STUDIOS, YOGA",
+            description: "",
+            features: [
+                "Membership leads daily — from a $199 automation",
+                "Gyms abroad pay thousands for what you get at 1% of the price",
+                "Your studio can double members without ads",
+            ],
+            pricing: {
+                basic: "$199 for Lifetime",
+                standard: "",
+                premium: "",
+                details: "",
             },
         },
     ];
@@ -369,42 +485,77 @@ export const ServicesSection = () => {
                     </DialogHeader>
                     {selectedPackage !== null && (
                         <div className="space-y-6 py-4">
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                <div className="p-4 bg-muted rounded-lg text-center">
-                                    <p className="text-sm text-muted-foreground mb-2">Basic</p>
-                                    <p className="text-2xl font-bold text-primary">{packages[selectedPackage].pricing.basic}</p>
-                                </div>
-                                <div className="p-4 bg-primary/10 rounded-lg text-center border-2 border-primary">
-                                    <p className="text-sm text-muted-foreground mb-2">Standard</p>
-                                    <p className="text-2xl font-bold text-primary">{packages[selectedPackage].pricing.standard}</p>
-                                    <p className="text-xs text-primary mt-1">MOST POPULAR</p>
-                                </div>
-                                <div className="p-4 bg-muted rounded-lg text-center">
-                                    <p className="text-sm text-muted-foreground mb-2">Premium</p>
-                                    <p className="text-2xl font-bold text-primary">{packages[selectedPackage].pricing.premium}</p>
-                                </div>
-                            </div>
-                            <div className="p-4 bg-muted/50 rounded-lg">
-                                <p className="text-sm text-foreground">{packages[selectedPackage].pricing.details}</p>
-                            </div>
-                            <div className="flex gap-4">
-                                <Button
-                                    onClick={() => setSelectedPackage(null)}
-                                    variant="outline"
-                                    className="flex-1"
-                                >
-                                    Close
-                                </Button>
-                                <Button
-                                    onClick={() => {
-                                        window.location.href = "#contact";
-                                        setSelectedPackage(null);
-                                    }}
-                                    className="flex-1 bg-primary hover:bg-primary-light"
-                                >
-                                    Get Started
-                                </Button>
-                            </div>
+                            {/* Check if this is a Lead Master card (has empty standard/premium pricing) */}
+                            {packages[selectedPackage].pricing.standard === "" ? (
+                                <>
+                                    {/* Simplified pricing for Lead Master cards */}
+                                    <div className="text-center py-8">
+                                        <div className="mb-6">
+                                            <p className="text-sm text-muted-foreground mb-2">One-Time Investment</p>
+                                            <p className="text-5xl font-bold text-primary">{packages[selectedPackage].pricing.basic}</p>
+                                        </div>
+                                        <p className="text-lg text-muted-foreground mb-8">No monthly fees. Lifetime access.</p>
+                                    </div>
+                                    <div className="flex gap-4">
+                                        <Button
+                                            onClick={() => setSelectedPackage(null)}
+                                            variant="outline"
+                                            className="flex-1"
+                                        >
+                                            Close
+                                        </Button>
+                                        <Button
+                                            onClick={() => {
+                                                window.location.href = "#contact";
+                                                setSelectedPackage(null);
+                                            }}
+                                            className="flex-1 bg-primary hover:bg-primary-light text-lg py-6"
+                                        >
+                                            Contact Us
+                                        </Button>
+                                    </div>
+                                </>
+                            ) : (
+                                <>
+                                    {/* Original 3-tier pricing for other packages */}
+                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                        <div className="p-4 bg-muted rounded-lg text-center">
+                                            <p className="text-sm text-muted-foreground mb-2">Basic</p>
+                                            <p className="text-2xl font-bold text-primary">{packages[selectedPackage].pricing.basic}</p>
+                                        </div>
+                                        <div className="p-4 bg-primary/10 rounded-lg text-center border-2 border-primary">
+                                            <p className="text-sm text-muted-foreground mb-2">Standard</p>
+                                            <p className="text-2xl font-bold text-primary">{packages[selectedPackage].pricing.standard}</p>
+                                            <p className="text-xs text-primary mt-1">MOST POPULAR</p>
+                                        </div>
+                                        <div className="p-4 bg-muted rounded-lg text-center">
+                                            <p className="text-sm text-muted-foreground mb-2">Premium</p>
+                                            <p className="text-2xl font-bold text-primary">{packages[selectedPackage].pricing.premium}</p>
+                                        </div>
+                                    </div>
+                                    <div className="p-4 bg-muted/50 rounded-lg">
+                                        <p className="text-sm text-foreground">{packages[selectedPackage].pricing.details}</p>
+                                    </div>
+                                    <div className="flex gap-4">
+                                        <Button
+                                            onClick={() => setSelectedPackage(null)}
+                                            variant="outline"
+                                            className="flex-1"
+                                        >
+                                            Close
+                                        </Button>
+                                        <Button
+                                            onClick={() => {
+                                                window.location.href = "#contact";
+                                                setSelectedPackage(null);
+                                            }}
+                                            className="flex-1 bg-primary hover:bg-primary-light"
+                                        >
+                                            Get Started
+                                        </Button>
+                                    </div>
+                                </>
+                            )}
                         </div>
                     )}
                 </DialogContent>
